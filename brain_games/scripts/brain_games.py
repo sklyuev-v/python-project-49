@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import brain_games.cli
 
+
 def say_hello():
     print('Welcome to the Brain Games!')
 
