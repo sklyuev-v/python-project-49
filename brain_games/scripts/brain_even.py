@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
-import prompt
 import random
 import brain_games.brain_engine
 
 
 def main():
-    brain_games.brain_engine.say_hello()
-    name = brain_games.brain_engine.get_user_name()
-    game_logic(name)
+    description = 'Answer "yes" if the number is even, otherwise answer "no"'
+    brain_games.brain_engine.game_process(description, game_logic)
 
 
 def is_even(number):
@@ -17,27 +15,16 @@ def is_even(number):
         return False
 
 
-def game_logic(user_name):
-    print('Answer "yes" if the number is even, otherwise answer "no"')
+def game_logic():
+    number = random.randint(1, 100)
+    even = is_even(number)
 
-    win = True
-    index = 0
+    brain_games.brain_engine.ask_question(number)
+    answer = brain_games.brain_engine.get_answer()
 
-    while index < 3:
-        number = random.randint(1, 100)
-        even = is_even(number)
-        corr = 'yes' if even else 'no'
-        print(f'Question: {number}')
-        answer = prompt.string('Your answer: ')
-        if (answer == 'yes' and even) or (answer == 'no' and not even):
-            print('Correct!')
-        else:
-            print(f"{answer}' is wrong answer ;(. Correct answer was '{corr}'.")
-            win = False
-            break
-        index += 1
+    correct = 'yes' if even else 'no'
 
-    brain_games.brain_engine.say_game_over(user_name, win)
+    return brain_games.brain_engine.print_result(answer, correct)
 
 
 if __name__ == '__main__':
