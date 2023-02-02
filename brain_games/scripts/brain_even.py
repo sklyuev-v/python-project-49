@@ -1,22 +1,13 @@
+#!/usr/bin/env python3
 import prompt
 import random
+import brain_games.brain_engine
 
 
 def main():
-        say_welcome()
-        get_user_name()
-        game_logic()
-
-def say_welcome():
-    print('Welcome to the Brain Games!')
-
-
-def get_user_name():
-    name = prompt.string('May I have your name? ')
-    print(f'Hello, {name}')
-    print('Answer "yes" if the number is even, otherwise answer "no"')
-
-    return name
+    brain_games.brain_engine.say_hello()
+    name = brain_games.brain_engine.get_user_name()
+    game_logic(name)
 
 
 def is_even(number):
@@ -26,16 +17,27 @@ def is_even(number):
         return False
 
 
-def game_logic():
-    number = random.randint(1, 100)
-    print(f'Question: {number}')
-    answer = prompt.string('Your answer: ')
-    if (answer == 'yes' and is_even(number)) or (answer == 'no' and not is_even(number)):
-        print('Correct!')
-    else:
-        print('Uncorrect')
+def game_logic(user_name):
+    print('Answer "yes" if the number is even, otherwise answer "no"')
 
+    win = True
+    index = 0
 
+    while index < 3:
+        number = random.randint(1, 100)
+        even = is_even(number)
+        corr = 'yes' if even else 'no'
+        print(f'Question: {number}')
+        answer = prompt.string('Your answer: ')
+        if (answer == 'yes' and even) or (answer == 'no' and not even):
+            print('Correct!')
+        else:
+            print(f"{answer}' is wrong answer ;(. Correct answer was '{corr}'.")
+            win = False
+            break
+        index += 1
+
+    brain_games.brain_engine.say_game_over(user_name, win)
 
 
 if __name__ == '__main__':
