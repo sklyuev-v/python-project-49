@@ -1,5 +1,5 @@
 import prompt
- 
+
 
 def get_user_name():
     print('Welcome to the Brain Games!')
