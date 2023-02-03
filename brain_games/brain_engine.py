@@ -29,6 +29,7 @@ def say_game_over(name, result):
 
 def run_game(game_description, game_logic):
     name = get_user_name()
+    print(f'Hello, {name}')
     print(game_description)
 
     number_of_round = 0
