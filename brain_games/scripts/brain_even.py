@@ -4,7 +4,7 @@ from brain_games.games.br_even_logic import game_logic
 
 
 def main():
-    description = 'Answer "yes" if the number is even, otherwise answer "no"'
+    description = 'Answer "yes" if the number is even, otherwise answer "no".'
     run_game(description, game_logic)
 
 
