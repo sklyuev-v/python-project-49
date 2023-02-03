@@ -11,8 +11,8 @@
 2. make publish
 3. make package-install
 ### Game run commands
-brain-even - determine if a number is even
-brain-calc - calculate the result of the expression (only +, -, * operation)
-brain-gcd  - find the greatest common divisor
-brain-prime - determine if a number is prime
-brain-progression - find the missing number in the progression
+- brain-even - determine if a number is even
+- brain-calc - calculate the result of the expression (only +, -, * operation)
+- brain-gcd  - find the greatest common divisor
+- brain-prime - determine if a number is prime
+- brain-progression - find the missing number in the progression
