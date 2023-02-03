@@ -1,10 +1,11 @@
+#!/usr/bin/env python3
 import random
 import brain_games.brain_engine
 
 
 def main():
-    description = 'What number is missing in the progression?'
-    brain_games.brain_engine.game_process(description, game_logic)
+    descr = 'What number is missing in the progression?'
+    brain_games.brain_engine.game_process(descr, game_logic)
 
 
 def generate_progression():
@@ -21,21 +22,21 @@ def generate_progression():
 
     return progression
 
+
 def game_logic():
 
     progression = generate_progression()
 
-    change_index = random.randint(0, 9)
-
+    change_index = random.randint(0, len(progression) - 1)
     correct = progression[change_index]
     progression[change_index] = '..'
 
-    question = " ".join(map(str, progression[0:10]))
+    question = " ".join(map(str, progression))
 
     brain_games.brain_engine.ask_question(question)
     answer = brain_games.brain_engine.get_answer()
 
-    return brain_games.brain_engine.print_result(answer, correct)
+    return brain_games.brain_engine.say_result(answer, correct)
 
 
 if __name__ == '__main__':

@@ -4,11 +4,11 @@ import brain_games.brain_engine
 
 
 def main():
-    description = 'What is the result of the expression?'
-    brain_games.brain_engine.game_process(description, game_process)
+    descr = 'What is the result of the expression?'
+    brain_games.brain_engine.game_process(descr, game_logic)
 
 
-def game_process():
+def game_logic():
     num_one = random.randint(1, 100)
     num_two = random.randint(1, 100)
     sign = random.choice(('+', '-', '*'))
@@ -23,7 +23,7 @@ def game_process():
     brain_games.brain_engine.ask_question(f'{num_one} {sign} {num_two}')
     answer = brain_games.brain_engine.get_answer()
 
-    return brain_games.brain_engine.print_result(answer, correct)
+    return brain_games.brain_engine.say_result(answer, correct)
 
 
 if __name__ == '__main__':
