@@ -22,9 +22,9 @@ def say_result(answer, correct):
 
 def say_game_over(name, result):
     if result:
-        print(f'Congratulations, {name}')
+        print(f'Congratulations, {name}!')
     else:
-        print(f"Let's try again, {name}")
+        print(f"Let's try again, {name}!")
 
 
 def run_game(game_description, game_logic):
