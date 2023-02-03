@@ -1,29 +1,10 @@
 #!/usr/bin/env python3
-import random
-import brain_games.brain_engine
+from brain_games.brain_engine import run_game
+from brain_games.games.br_calc_logic import game_logic
 
 
 def main():
-    descr = 'What is the result of the expression?'
-    brain_games.brain_engine.game_process(descr, game_logic)
-
-
-def game_logic():
-    num_one = random.randint(1, 100)
-    num_two = random.randint(1, 100)
-    sign = random.choice(('+', '-', '*'))
-
-    if sign == '+':
-        correct = num_one + num_two
-    elif sign == '-':
-        correct = num_one - num_two
-    else:
-        correct = num_one * num_two
-
-    brain_games.brain_engine.ask_question(f'{num_one} {sign} {num_two}')
-    answer = brain_games.brain_engine.get_answer()
-
-    return brain_games.brain_engine.say_result(answer, correct)
+    run_game('What is the result of the expression?', game_logic)
 
 
 if __name__ == '__main__':

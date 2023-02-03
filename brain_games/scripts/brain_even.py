@@ -1,28 +1,11 @@
 #!/usr/bin/env python3
-import random
-import brain_games.brain_engine
+from brain_games.brain_engine import run_game
+from brain_games.games.br_even_logic import game_logic
 
 
 def main():
-    descr = 'Answer "yes" if the number is even, otherwise answer "no"'
-    brain_games.brain_engine.game_process(descr, game_logic)
-
-
-def is_even(number):
-    if number % 2 == 0:
-        return True
-    else:
-        return False
-
-
-def game_logic():
-    number = random.randint(1, 100)
-
-    brain_games.brain_engine.ask_question(number)
-    answer = brain_games.brain_engine.get_answer()
-    correct = 'yes' if is_even(number) else 'no'
-
-    return brain_games.brain_engine.say_result(answer, correct)
+    description = 'Answer "yes" if the number is even, otherwise answer "no"'
+    run_game(description, game_logic)
 
 
 if __name__ == '__main__':

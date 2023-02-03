@@ -1,26 +1,13 @@
 import prompt
-
-
-def say_hello():
-    print('Welcome to the Brain Games!')
-
+ 
 
 def get_user_name():
+    print('Welcome to the Brain Games!')
     return prompt.string('May I have your name? ')
-
-
-def say_game_over(name, result):
-    if result:
-        print(f'Congratulations, {name}')
-    else:
-        print(f"Let's try again, {name}")
 
 
 def ask_question(question):
     print(f'Question: {question}')
-
-
-def get_answer():
     return prompt.string('Your answer: ')
 
 
@@ -33,8 +20,14 @@ def say_result(answer, correct):
         return False
 
 
-def game_process(game_description, game_logic):
-    say_hello()
+def say_game_over(name, result):
+    if result:
+        print(f'Congratulations, {name}')
+    else:
+        print(f"Let's try again, {name}")
+
+
+def run_game(game_description, game_logic):
     name = get_user_name()
     print(game_description)
 
