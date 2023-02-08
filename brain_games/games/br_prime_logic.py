@@ -1,5 +1,4 @@
 import random
-import brain_games.brain_engine
 
 
 def is_prime(number):
@@ -15,9 +14,7 @@ def is_prime(number):
 
 
 def game_logic():
-    number = random.randint(1, 500)
+    question = random.randint(1, 500)
+    correct = 'yes' if is_prime(question) else 'no'
 
-    answer = brain_games.brain_engine.ask_question(number)
-    correct = 'yes' if is_prime(number) else 'no'
-
-    return brain_games.brain_engine.say_result(answer, correct)
+    return question, correct

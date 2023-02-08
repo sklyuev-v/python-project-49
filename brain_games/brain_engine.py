@@ -1,43 +1,31 @@
 import prompt
 
 
-def get_user_name():
-    print('Welcome to the Brain Games!')
-    return prompt.string('May I have your name? ')
-
-
-def ask_question(question):
-    print(f'Question: {question}')
-    return prompt.string('Your answer: ')
-
-
-def say_result(answer, correct):
-    if str(answer) == str(correct):
-        print('Correct!')
-        return True
-    else:
-        print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct}'.")
-        return False
-
-
-def say_game_over(name, result):
-    if result:
-        print(f'Congratulations, {name}!')
-    else:
-        print(f"Let's try again, {name}!")
-
-
 def run_game(game_description, game_logic):
-    name = get_user_name()
+    print('Welcome to the Brain Games!')
+    name = prompt.string('May I have your name? ')
     print(f'Hello, {name}')
     print(game_description)
 
     number_of_round = 0
 
     while number_of_round < 3:
-        win_status = game_logic()
+        question, corr = game_logic()
+        print(f'Question: {question}')
+        ans = prompt.string('Your answer: ')
+
+        if str(ans) == str(corr):
+            print('Correct!')
+            win_status = True
+        else:
+            print(f"'{ans}' is wrong answer ;(. Correct answer was '{corr}'.")
+            win_status = False
+
         if not win_status:
             break
         number_of_round += 1
 
-    say_game_over(name, win_status)
+    if win_status:
+        print(f'Congratulations, {name}!')
+    else:
+        print(f"Let's try again, {name}!")

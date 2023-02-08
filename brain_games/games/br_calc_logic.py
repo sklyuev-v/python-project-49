@@ -1,5 +1,4 @@
 import random
-import brain_games.brain_engine
 
 
 def game_logic():
@@ -15,6 +14,5 @@ def game_logic():
         correct = num_one * num_two
 
     question = f'{num_one} {sign} {num_two}'
-    answer = brain_games.brain_engine.ask_question(question)
 
-    return brain_games.brain_engine.say_result(answer, correct)
+    return question, correct

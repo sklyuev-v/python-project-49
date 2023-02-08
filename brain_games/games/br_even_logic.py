@@ -1,5 +1,4 @@
 import random
-import brain_games.brain_engine
 
 
 def is_even(number):
@@ -10,9 +9,7 @@ def is_even(number):
 
 
 def game_logic():
-    number = random.randint(1, 100)
+    question = random.randint(1, 100)
+    correct = 'yes' if is_even(question) else 'no'
 
-    answer = brain_games.brain_engine.ask_question(number)
-    correct = 'yes' if is_even(number) else 'no'
-
-    return brain_games.brain_engine.say_result(answer, correct)
+    return question, correct
