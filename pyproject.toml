@@ -4,6 +4,8 @@ version = "0.1.0"
 description = ""
 authors = ["Viktor Sklyuev <sklyevv@yandex.ru>"]
 readme = "README.md"
+repository = "https://github.com/sklyuev-v/python-project-49.git"
+classifiers = ["Topic :: Games/Entertainment :: Puzzle Games"]
 packages = [{include = "brain_games"}]
 
 [tool.poetry.dependencies]
