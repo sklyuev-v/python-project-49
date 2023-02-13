@@ -26,7 +26,7 @@ def run_game(rules, get_round_data):
 
         if not win_status:
             break
-        NUMBER_OF_ROUND += 1
+        current_round += 1
 
     if win_status:
         print(f'Congratulations, {name}!')
