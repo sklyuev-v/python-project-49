@@ -1,6 +1,9 @@
 import random
 
 
+RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+
+
 def is_prime(number):
     start = 2
     prime = True
@@ -13,8 +16,11 @@ def is_prime(number):
     return prime
 
 
-def game_logic():
-    question = random.randint(1, 500)
-    correct = 'yes' if is_prime(question) else 'no'
+def get_game_round_data():
+    MIN_NUMBER = 1
+    MAX_NUMBER = 500
 
-    return question, correct
+    question = random.randint(MIN_NUMBER, MAX_NUMBER)
+    correct_answer = 'yes' if is_prime(question) else 'no'
+
+    return question, correct_answer

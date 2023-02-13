@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 from brain_games.brain_engine import run_game
-from brain_games.games.br_gcd_logic import game_logic
+from brain_games.games import br_gcd_logic
 
 
 def main():
-    description = 'Find the greatest common divisor of given numbers.'
-    run_game(description, game_logic)
+    run_game(br_gcd_logic.RULES, br_gcd_logic.get_game_round_data)
 
 
 if __name__ == '__main__':

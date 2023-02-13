@@ -1,9 +1,15 @@
 import random
 
 
+RULES = 'What is the result of the expression?'
+
+
 def game_logic():
-    num_one = random.randint(1, 100)
-    num_two = random.randint(1, 100)
+    MIN_NUMBER = 1
+    MAX_NUMBER = 100
+
+    num_one = random.randint(MIN_NUMBER, MAX_NUMBER)
+    num_two = random.randint(MIN_NUMBER, MAX_NUMBER)
     sign = random.choice(('+', '-', '*'))
 
     if sign == '+':

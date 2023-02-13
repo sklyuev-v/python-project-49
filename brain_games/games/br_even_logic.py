@@ -1,6 +1,9 @@
 import random
 
 
+RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
+
+
 def is_even(number):
     if number % 2 == 0:
         return True
@@ -8,8 +11,11 @@ def is_even(number):
         return False
 
 
-def game_logic():
-    question = random.randint(1, 100)
-    correct = 'yes' if is_even(question) else 'no'
+def get_game_round_data():
+    MIN_NUMBER = 1
+    MAX_NUMBER = 100
 
-    return question, correct
+    question = random.randint(MIN_NUMBER, MAX_NUMBER)
+    correct_answer = 'yes' if is_even(question) else 'no'
+
+    return question, correct_answer

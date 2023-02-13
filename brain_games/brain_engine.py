@@ -1,29 +1,32 @@
 import prompt
 
 
-def run_game(game_description, game_logic):
+def run_game(rules, get_round_data):
     print('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
     print(f'Hello, {name}')
-    print(game_description)
+    print(rules)
 
-    number_of_round = 0
+    current_round = 0
+    NUMBER_OF_ROUND = 3
 
-    while number_of_round < 3:
-        question, corr = game_logic()
+    while current_round < NUMBER_OF_ROUND:
+        question, correct_answer = get_round_data()
         print(f'Question: {question}')
-        ans = prompt.string('Your answer: ')
+        answer = prompt.string('Your answer: ')
 
-        if str(ans) == str(corr):
+        if str(answer) == str(correct_answer):
             print('Correct!')
             win_status = True
         else:
-            print(f"'{ans}' is wrong answer ;(. Correct answer was '{corr}'.")
+            str_a = f"'{answer}' is wrong answer ;(."
+            str_b = f"Correct answer was '{correct_answer}'."
+            print(f'{str_a} {str_b}')
             win_status = False
 
         if not win_status:
             break
-        number_of_round += 1
+        NUMBER_OF_ROUND += 1
 
     if win_status:
         print(f'Congratulations, {name}!')
