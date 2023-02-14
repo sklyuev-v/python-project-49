@@ -16,7 +16,7 @@ def get_gcd(num_one, num_two):
     return gcd
 
 
-def game_logic():
+def get_game_round_data():
     MIN_NUMBER = 1
     MAX_NUMBER = 100
     num_one = random.randint(MIN_NUMBER, MAX_NUMBER)
