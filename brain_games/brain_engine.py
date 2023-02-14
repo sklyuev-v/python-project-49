@@ -8,9 +8,9 @@ def run_game(rules, get_round_data):
     print(rules)
 
     current_round = 0
-    NUMBER_OF_ROUND = 3
+    NUMBER_OF_ROUNDS = 3
 
-    while current_round < NUMBER_OF_ROUND:
+    while current_round < NUMBER_OF_ROUNDS:
         question, correct_answer = get_round_data()
         print(f'Question: {question}')
         answer = prompt.string('Your answer: ')
