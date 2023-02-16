@@ -5,10 +5,7 @@ RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 def is_even(number):
-    if number % 2 == 0:
-        return True
-    else:
-        return False
+    return True if number % 2 == 0 else False
 
 
 def get_game_round_data():
