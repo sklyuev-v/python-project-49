@@ -1,24 +1,19 @@
 import random
 
 
+MIN_NUMBER = 1
+MAX_NUMBER = 100
 RULES = 'Find the greatest common divisor of given numbers.'
 
 
 def get_gcd(num_one, num_two):
-    gcd = min(num_one, num_two)
+    if num_one == 0:
+        return num_two
 
-    while True:
-        if num_two % gcd == 0 and num_one % gcd == 0:
-            break
-        else:
-            gcd -= 1
-
-    return gcd
+    return get_gcd(num_two % num_one, num_one)
 
 
 def get_game_round_data():
-    MIN_NUMBER = 1
-    MAX_NUMBER = 100
     num_one = random.randint(MIN_NUMBER, MAX_NUMBER)
     num_two = random.randint(MIN_NUMBER, MAX_NUMBER)
 
