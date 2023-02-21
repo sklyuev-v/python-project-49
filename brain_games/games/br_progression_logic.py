@@ -14,9 +14,9 @@ def create_progression(initial_term, common_difference):
     return list(range(initial_term, last_term, common_difference))
 
 
-def hide_element_and_convert_to_str(progression, question_index):
-    correct_answer = progression[question_index]
-    progression[question_index] = '..'
+def make_question(progression, hide_term_index):
+    correct_answer = progression[hide_term_index]
+    progression[hide_term_index] = '..'
     return ' '.join(map(str, progression)), correct_answer
 
 
@@ -26,7 +26,7 @@ def get_round_data():
 
     progression = create_progression(initial_term, common_difference)
 
-    q_index = random.randint(0, len(progression) - 1)
-    question, corr_ans = hide_element_and_convert_to_str(progression, q_index)
+    hide_term_index = random.randint(0, len(progression) - 1)
+    question, corr_ans = make_question(progression, hide_term_index)
 
     return question, corr_ans
